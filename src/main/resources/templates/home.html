@@ -6,62 +6,62 @@
     <title>Home</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
+            background-image: url('https://cdn.pixabay.com/photo/2018/03/23/11/57/girl-3253532_1280.jpg'); /* Replace 'background.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
         }
 
         h1 {
-            color: #333;
+            font-size: 4em;
+            margin-top: 20px; /* Adjusted margin top */
+            margin-bottom: 20px;
         }
 
         p {
-            color: #666;
-            font-size: 18px;
+            font-size: 1.8em;
+            margin-bottom: 50px; /* Adjusted margin bottom */
         }
 
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .buttons a {
+            display: inline-block;
+            padding: 10px 20px;
             background-color: #333;
             color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .footer a {
-            color: white;
             text-decoration: none;
-            margin: 0 10px;
+            border-radius: 25px;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
         }
 
-
-
-
-
-
-
+        .buttons a:hover {
+            background-color: #555;
+        }
 
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>Muscle Play</h1>
-    <p>Welcome to Muscle Play</p>
-</div>
-<div class="footer">
-    <a href="/" th:href="@{/support}">Support</a>
+<h1>Muscle Play</h1>
+<p>Welcome to Muscle Play</p>
+<div class="buttons">
     <a href="/" th:href="@{/aboutUs}">About Us</a>
+    <a href="/" th:href="@{/support}">Support</a>
     <a href="/" th:href="@{/contactUs}">Contact Us</a>
 </div>
 </body>
