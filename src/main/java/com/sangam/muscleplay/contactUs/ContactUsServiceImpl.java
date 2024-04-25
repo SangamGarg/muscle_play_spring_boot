@@ -11,7 +11,7 @@ public class ContactUsServiceImpl implements ContactUsService {
 
     @Override
     public String getContactUs() {
-        ContactUsModel contactUs = contactUsRepository.findById("660d2f7acda913b996ea3690").orElseThrow(() -> new RuntimeException("Error getting the document. Please try again later."));
+        ContactUsModel contactUs = contactUsRepository.findById("662a59fb2742417060622e55").orElseThrow(() -> new RuntimeException("Error getting the document. Please try again later."));
         return contactUs.getContactUs();
     }
 }
