@@ -9,22 +9,24 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('https://cdn.pixabay.com/photo/2018/03/23/11/57/girl-3253532_1280.jpg'); /* Replace 'background.jpg' with your image file */
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(45deg, #00aaff 70%, #ff66b2 20%, #ffffff 10%); /* Blue dominant, angled gradient */
             color: white;
             position: relative;
+            height: 100vh; /* Ensure the body takes full viewport height */
+            overflow: hidden; /* Prevent scrollbars */
         }
 
         h1 {
             font-size: 4em;
-            margin-top: 20px; /* Adjusted margin top */
+            margin-top: 20px;
             margin-bottom: 20px;
+            color: #000; /* Dark text color for contrast */
         }
 
         p {
             font-size: 1.8em;
-            margin-bottom: 50px; /* Adjusted margin bottom */
+            margin-bottom: 50px;
+            color: #000; /* Dark text color for contrast */
         }
 
         .logo {
@@ -54,6 +56,46 @@
             background-color: #555;
         }
 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            p {
+                font-size: 1.5em;
+            }
+
+            .buttons {
+                top: 10px;
+                right: 10px;
+            }
+
+            .buttons a {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+
+            .buttons {
+                top: 5px;
+                right: 5px;
+            }
+
+            .buttons a {
+                padding: 6px 12px;
+                font-size: 0.8em;
+            }
+        }
     </style>
 </head>
 <body>

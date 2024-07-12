@@ -1,6 +1,5 @@
 package com.sangam.muscleplay.contactUs;
 
-import com.sangam.muscleplay.about_us.AboutUsModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

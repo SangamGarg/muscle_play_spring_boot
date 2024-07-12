@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muscle Play - About Us</title>
+    <title>Muscle Play - Privacy Policy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <style>
@@ -11,7 +11,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f0f4f8, #c1e1c1);
+            background: linear-gradient(135deg, #e0f7fa, #80deea);
             color: #333;
         }
         .header {
@@ -44,18 +44,11 @@
             max-width: 800px;
             padding: 30px;
             text-align: center;
-            animation: fadeInUp 1s;
             position: relative;
             background: rgba(255, 255, 255, 0.8); /* semi-transparent white background */
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        .box img {
-            width: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 6px solid #00796b;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s;
         }
         .box h2 {
             font-size: 32px;
@@ -86,42 +79,18 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            padding: 20px;
         }
         .faq-question {
-            padding: 20px;
             font-size: 20px;
             color: #333;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease;
-            background: #e0f2f1;
-            border-bottom: 1px solid #ddd;
-        }
-        .faq-question:hover {
-            background: #b2dfdb;
-        }
-        .faq-question::after {
-            content: '▶';
-            font-size: 24px;
-            color: #00796b;
-            transition: transform 0.3s ease;
+            font-weight: 600; /* Bold text for the question */
+            margin-bottom: 10px;
         }
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 20px;
-            background: #f1f8f7;
+            font-size: 18px;
             color: #555;
-        }
-        .faq-answer.show {
-            max-height: 300px;
-            padding: 20px;
-        }
-        .faq-question.open::after {
-            transform: rotate(90deg);
         }
         @keyframes fadeInUp {
             0% {
@@ -141,9 +110,6 @@
                 width: 100%;
                 padding: 20px;
             }
-            .box img {
-                width: 120px;
-            }
             .faq-question {
                 font-size: 18px;
             }
@@ -151,32 +117,19 @@
     </style>
 </head>
 <body>
-
 <div class="content">
     <div class="box">
-        <img src="https://cdn.pixabay.com/photo/2016/03/11/08/02/usa-1249880_640.jpg" alt="Muscle Play Logo">
-        <h2>About Us</h2>
-        <p><span>Application Name:</span> <span th:text="${aboutUs.appName}"></span></p>
-        <p><span>Developer Name:</span> <span th:text="${aboutUs.developerName}"></span></p>
-        <p><span>Version:</span> <span th:text="${aboutUs.version}"></span></p>
-
-<!--        <div class="faq-header">FAQs (Frequently Asked Questions)</div>-->
-        <div th:each="faq : ${aboutUs.aboutUsQuestions}" class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span th:text="${faq.question}"></span>
+        <h1>Privacy Policy</h1>
+        <p th:text="${privacyPolicy.privacyPolicyText}"></p>
+        <div th:each="faq : ${privacyPolicy.privacyPolicyQuestions}" class="faq-item">
+            <div class="faq-question">
+                <span th:text="${faq.questions}"></span>
             </div>
             <div class="faq-answer">
-                <p th:text="${faq.answer}"></p>
+                <p th:text="${faq.answers}"></p>
             </div>
         </div>
     </div>
 </div>
-<script>
-    function toggleFAQ(element) {
-        const answer = element.nextElementSibling;
-        const isOpen = element.classList.toggle('open');
-        answer.classList.toggle('show', isOpen);
-    }
-</script>
 </body>
 </html>
