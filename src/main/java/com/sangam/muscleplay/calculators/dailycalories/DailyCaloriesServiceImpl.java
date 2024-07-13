@@ -55,19 +55,26 @@ public class DailyCaloriesServiceImpl implements DailyCaloriesService {
         // Create goals map with different weight goals and corresponding calorie requirements
         Map<String, Object> goalsMap = new LinkedHashMap<>();
         goalsMap.put("maintain weight", dailyCalories);
-        goalsMap.put("Mild weight loss", createWeightMap("0.25 kg", dailyCalories - 250));
-        goalsMap.put("Weight loss", createWeightMap("0.50 kg", dailyCalories - 500));
-        goalsMap.put("Extreme weight loss", createWeightMap("1 kg", dailyCalories - 1000));
-        goalsMap.put("Mild weight gain", createWeightMap("0.25 kg", dailyCalories + 250));
-        goalsMap.put("Weight gain", createWeightMap("0.50 kg", dailyCalories + 500));
-        goalsMap.put("Extreme weight gain", createWeightMap("1 kg", dailyCalories + 1000));
+        goalsMap.put("Mild weight loss", createWeightLossMap("0.25 kg", dailyCalories - 250));
+        goalsMap.put("Weight loss", createWeightLossMap("0.50 kg", dailyCalories - 500));
+        goalsMap.put("Extreme weight loss", createWeightLossMap("1 kg", dailyCalories - 1000));
+        goalsMap.put("Mild weight gain", createWeightGainMap("0.25 kg", dailyCalories + 250));
+        goalsMap.put("Weight gain", createWeightGainMap("0.50 kg", dailyCalories + 500));
+        goalsMap.put("Extreme weight gain", createWeightGainMap("1 kg", dailyCalories + 1000));
         return goalsMap;
     }
 
-    private Map<String, Object> createWeightMap(String weightChange, int calorie) {
+    private Map<String, Object> createWeightGainMap(String weightChange, int calorie) {
         // Create weight goal map with weight change and corresponding calorie requirement
         Map<String, Object> weightMap = new LinkedHashMap<>();
-        weightMap.put("gain weight", weightChange);
+        weightMap.put("gain_weight", weightChange);
+        weightMap.put("calory", calorie);
+        return weightMap;
+    }
+    private Map<String, Object> createWeightLossMap(String weightChange, int calorie) {
+        // Create weight goal map with weight change and corresponding calorie requirement
+        Map<String, Object> weightMap = new LinkedHashMap<>();
+        weightMap.put("loss_weight", weightChange);
         weightMap.put("calory", calorie);
         return weightMap;
     }
