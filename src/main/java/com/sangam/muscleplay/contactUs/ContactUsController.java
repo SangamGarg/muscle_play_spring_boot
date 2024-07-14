@@ -12,7 +12,6 @@ public class ContactUsController {
 
     @GetMapping("/contactUs")
     String getContactUs(Model model) {
-
         try {
             String responseModel = contactUsService.getContactUs();
             model.addAttribute("contactUs", responseModel);
