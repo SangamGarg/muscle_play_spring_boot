@@ -8,6 +8,6 @@ public class MuscleplayApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MuscleplayApplication.class, args);
-        System.out.println("Server Running...");
+        System.out.println("Server Running....");
     }
 }
