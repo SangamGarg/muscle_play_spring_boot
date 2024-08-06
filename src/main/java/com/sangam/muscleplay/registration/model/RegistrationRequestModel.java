@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import java.util.List;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -21,4 +23,7 @@ public class RegistrationRequestModel {
     private String email;
     @NotNull(message = "phone Cannot Be Null")
     private String phone;
+    @NotNull(message = "fcmToken Cannot Be Null")
+    private List<String> fcmToken;
+
 }

@@ -8,17 +8,17 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class EmailApiService {
 
-    @Value("${api.key}")
-    private String apiKey;
-
     private final RestTemplate restTemplate = new RestTemplate();
+
+    @Value("${email.service.api.key}")
+    private String apiKey;
 
     public String sendMail(EmailRequestBody emailRequestBody) {
         String url = "https://send.api.mailtrap.io/api/send";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setBearerAuth("e479069b435573c360380f33241bae4a");
+        headers.setBearerAuth(apiKey);
 
         String requestJson = String.format("{\"from\":{\"email\":\"mailtrap@demomailtrap.com\",\"name\":\"MusclePlay Contact\"},\"to\":[{\"email\":\"muscleplaywork1908@gmail.com\"}],\"subject\":\"%s\",\"text\":\"%s\",\"category\":\"Integration Test\"}", emailRequestBody.getSubject(), emailRequestBody.getBody());
 

@@ -1,15 +1,11 @@
 package com.sangam.muscleplay.registration.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "Users")
@@ -20,14 +16,15 @@ public class UserDetailsResponseModel {
     private String name;
     private String email;
     private String phone;
+    private String fcmToken;
     private String profileImageUrl = "";
     private String gender = "";
     private int age = 0;
     private Measurements measurements = new Measurements();
+    private Notification notification = new Notification();
 }
 
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 class Measurements {
@@ -38,4 +35,14 @@ class Measurements {
     private float hip = 0f;
     private float neck = 0f;
     private float waist = 0f;
+}
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+class Notification {
+    private String heading;
+    private String subHeading;
+    private String date;
+    private String time;
 }
