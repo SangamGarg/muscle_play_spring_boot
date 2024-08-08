@@ -33,4 +33,25 @@ public class EmailApiService {
         }
     }
 
+
+    public String sendMailWebsite(EmailWebsiteRequestBody emailRequestBody) {
+        String url = "https://send.api.mailtrap.io/api/send";
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setBearerAuth(apiKey);
+
+        String requestJson = String.format("{\"from\":{\"email\":\"mailtrap@demomailtrap.com\",\"name\":\"MusclePlay Contact Website\"}," + "\"to\":[{\"email\":\"muscleplaywork1908@gmail.com\"}]," + "\"subject\":\"%s\",\"text\":\"From: %s (%s)\\n\\n%s\",\"category\":\"Integration Test\"}", emailRequestBody.getSubject(), emailRequestBody.getName(), emailRequestBody.getEmail(), emailRequestBody.getBody());
+
+        HttpEntity<String> entity = new HttpEntity<>(requestJson, headers);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+
+        if (response.getStatusCode() == HttpStatus.OK) {
+            return "Email sent successfully";
+        } else {
+            throw new RuntimeException("Failed to send email: " + response.getStatusCode());
+        }
+    }
 }
+

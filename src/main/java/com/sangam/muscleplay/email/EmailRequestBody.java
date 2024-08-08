@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class EmailRequestBody {
 
     @NotBlank(message = "Subject Cannot Be Blank")
